@@ -32,10 +32,6 @@ internal class DataInitializer(
 			)
 		)
 
-		userRepository
-			.saveAll(users)
-			.subscribe {
-				logger.debug { "User successfully saved into database with ID: ${it.id}" }
-			}
+		userRepository.saveAll(users)
 	}
 }

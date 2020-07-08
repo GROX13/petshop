@@ -12,10 +12,12 @@ class UserService(
 ) {
 
 	fun findById(id: Long): Mono<UserDTO> {
-		return userRepository.findById(id).map(User::toDTO)
+		val optionalUser = userRepository.findById(id)
+		return if (optionalUser.isPresent) Mono.just(optionalUser.get().toDTO()) else Mono.empty()
 	}
-	
+
 	fun findAll(): Flux<UserDTO> {
-		return userRepository.findAll().map(User::toDTO)
+		val data = userRepository.findAll().map(User::toDTO)
+		return Flux.fromIterable(data)
 	}
 }

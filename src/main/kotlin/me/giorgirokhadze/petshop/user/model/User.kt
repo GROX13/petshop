@@ -4,6 +4,7 @@ import me.giorgirokhadze.petshop.security.Authority
 import javax.persistence.*
 
 @Entity
+@Table(name = "users")
 data class User(
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

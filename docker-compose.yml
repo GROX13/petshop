@@ -11,7 +11,7 @@ services:
   petshop_db:
     image: postgres
     ports:
-      - "5433:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=petshop_db_username
       - POSTGRES_USER=petshop_db_password

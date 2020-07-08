@@ -1,9 +1,8 @@
 package me.giorgirokhadze.petshop.user
 
 import me.giorgirokhadze.petshop.user.model.User
-import org.springframework.data.r2dbc.repository.R2dbcRepository
-import reactor.core.publisher.Mono
+import org.springframework.data.jpa.repository.JpaRepository
 
-interface UserRepository : R2dbcRepository<User, Long> {
-	fun findUserByUsername(username: String): Mono<User>
+interface UserRepository : JpaRepository<User, Long> {
+	fun findUserByUsername(username: String): User
 }
