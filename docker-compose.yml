@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  app:
+    container_name: petshop-app
+    image: petshop-app
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - petshop_db
+  petshop_db:
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=petshop_db_username
+      - POSTGRES_USER=petshop_db_password
+      - POSTGRES_DB=petshop_test

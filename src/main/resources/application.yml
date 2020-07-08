@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:petshop_test}
+    username: ${DB_USERNAME:petshop_db_username}
+    password: ${DB_PASSWORD:petshop_db_password}
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:petshop_test}
+    username: ${DB_USERNAME:petshop_db_username}
+    password: ${DB_PASSWORD:petshop_db_password}
+  jpa:
+    hibernate.ddl-auto: create
+
+logging:
+  level:
+    root: info
+    me.giorgirokhadze: debug
